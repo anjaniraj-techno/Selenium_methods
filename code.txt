@@ -1,0 +1,41 @@
+
+button buttonNext ng-isolate-scope
+
+
+/html/body/div[2]/div[2]/div/div[2]/div/div[1]/form/fieldset/policyholder2-directive/div[1]/a
+
+for element not clicable at some postion 
+
+Capabilities cp = ((RemoteWebDriver) driver).getCapabilities();
+                if (cp.getBrowserName().equals("chrome")) {
+                    try {
+                        ((JavascriptExecutor) driver).executeScript(
+                                "arguments[0].scrollIntoView(true);", webElement);
+                    } catch (Exception e) {
+
+                    }
+                }
+
+                webElement.click();
+-----------------------------------------------------------------------------------
+
+IWebElement elementToClick = <code to get element>;
+
+// Scroll the browser to the element's Y position
+(driver as IJavaScriptExecutor).ExecuteScript(string.Format("window.scrollTo(0, {0});",
+elementToClick.Location.Y));
+
+// Click the element
+elementToClick.Click();
+
+Hope this helps anyone else who runs into this issue
+
+
+------------------------------------------------------------------------------------------------
+
+// Find an element and define it
+WebElement elementToClick = driver.findElement(By.xpath("some xpath"));
+// Scroll the browser to the element's Y position
+((JavascriptExecutor) driver).executeScript("window.scrollTo(0,"+elementToClick.getLocation().y+")");
+// Click the element
+elementToClick.click();
